@@ -94,14 +94,17 @@ namespace Blog.IdentityServer
 
                     RedirectUris =
                     {
+                        "http://192.168.123.120:81/callback",
+                        "http://192.168.123.120:8083/oauth2-redirect.html",
+
                         "http://vueadmin.neters.club/callback",
                         "http://apk.neters.club/oauth2-redirect.html",
 
                         "http://localhost:2364/callback",
                         "http://localhost:8081/oauth2-redirect.html",
                     },
-                    PostLogoutRedirectUris = { "http://vueadmin.neters.club","http://localhost:2364" },
-                    AllowedCorsOrigins =     { "http://vueadmin.neters.club","http://localhost:2364"  },
+                    PostLogoutRedirectUris = { "http://192.168.123.120:81", "http://localhost:2364" },
+                    AllowedCorsOrigins =     { "http://192.168.123.120:81", "http://localhost:2364" },
 
                     AccessTokenLifetime=3600,
 

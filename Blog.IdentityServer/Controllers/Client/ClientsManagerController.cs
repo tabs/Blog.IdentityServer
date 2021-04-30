@@ -32,7 +32,7 @@ namespace Blog.IdentityServer.Controllers.Client
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Authorize]
+        [Authorize(Policy = "SuperAdmin")]
         public async Task<IActionResult> Index()
         {
             return View(await _configurationDbContext.Clients

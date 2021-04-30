@@ -582,7 +582,7 @@ namespace IdentityServer4.Quickstart.UI
         [HttpPost]
         [Route("account/register")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null, string rName = "AdminTest")
+        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null, string rName = "jdrole")
         {
             ViewData["ReturnUrl"] = returnUrl;
             IdentityResult result = new IdentityResult();
@@ -628,7 +628,7 @@ namespace IdentityServer4.Quickstart.UI
                             new Claim(JwtClaimTypes.Name, model.RealName),
                             new Claim(JwtClaimTypes.Email, model.Email),
                             new Claim(JwtClaimTypes.EmailVerified, "false", ClaimValueTypes.Boolean),
-                            new Claim(JwtClaimTypes.Role, "6"),
+                            new Claim(JwtClaimTypes.Role, "28"),
                             new Claim("rolename", rName),
                         });
 
@@ -658,7 +658,7 @@ namespace IdentityServer4.Quickstart.UI
 
         [HttpGet]
         [Route("account/users")]
-        [Authorize]
+        [Authorize(Policy = "SuperAdmin")]
         public IActionResult Users(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
